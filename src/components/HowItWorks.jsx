@@ -102,12 +102,6 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes dash {
-          to { stroke-dashoffset: -1000; }
-        }
-      `}</style>
     </section>
   );
 };

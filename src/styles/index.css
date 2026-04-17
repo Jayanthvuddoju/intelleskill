@@ -66,3 +66,9 @@ body {
   );
   pointer-events: none;
 }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}

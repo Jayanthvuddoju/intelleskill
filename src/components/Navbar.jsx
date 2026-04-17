@@ -1,6 +1,16 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
+  
+  const audienceTabs = [
+    { name: 'For Students', path: '/' },
+    { name: 'For Working Professionals', path: '#professionals' },
+    { name: 'For Universities / Colleges', path: '/universities' }
+  ];
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -10,16 +20,39 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               IntelleSkill
-            </span>
+            </Link>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">Features</a>
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">How it works</a>
-              <a href="#" className="text-slate-300 hover:text-white transition-colors">Pricing</a>
-              <a href="#" className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+            <div className="ml-10 flex items-center space-x-6">
+              {/* Audience Tabs */}
+              <div className="flex items-center space-x-2">
+                {audienceTabs.map((tab) => {
+                  const isActive = location.pathname === tab.path || (tab.path.startsWith('#') && location.hash === tab.path);
+                  
+                  return (
+                    <Link
+                      key={tab.name}
+                      to={tab.path}
+                      className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${
+                        isActive
+                          ? 'bg-white text-black border-white'
+                          : 'bg-white/10 border-white/20 text-slate-300 hover:bg-white/20 hover:text-white'
+                      }`}
+                    >
+                      {tab.name}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Main Navigation */}
+              <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">How it works</a>
+              <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
+              <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact Us</a>
+              
+              <a href="#" className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] text-sm">
                 Get Started
               </a>
             </div>
