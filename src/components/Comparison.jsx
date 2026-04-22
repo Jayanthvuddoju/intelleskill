@@ -55,15 +55,15 @@ const Comparison = () => {
           </motion.h2>
         </div>
 
-        {/* Header Row */}
+        {/* Header Row (Desktop Only) */}
         <div className="hidden md:grid grid-cols-3 gap-6 px-8 mb-8 py-4 bg-gradient-to-r from-white/10 to-transparent rounded-2xl border border-white/10 shadow-lg">
           <div className="text-gray-200 text-sm font-bold uppercase tracking-widest flex items-center">What matters to recruiters</div>
           <div className="text-gray-400 text-sm font-bold uppercase tracking-widest text-center flex items-center justify-center">Traditional</div>
           <div className="text-green-400 text-sm font-bold uppercase tracking-widest text-center flex items-center justify-center px-4">With IntelleSkill</div>
         </div>
 
-        {/* Comparison Rows */}
-        <div className="flex flex-col gap-4">
+        {/* Comparison Rows (Desktop Only) */}
+        <div className="hidden md:flex flex-col gap-4">
           {comparisonRows.map((row, index) => (
             <motion.div
               key={index}
@@ -98,6 +98,28 @@ const Comparison = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile Comparison Table (Visible only on mobile) */}
+        <div className="block md:hidden w-full overflow-x-auto px-2">
+          <table className="w-full text-[11px] border-collapse bg-white/[0.02] rounded-xl overflow-hidden">
+            <thead>
+              <tr className="text-white/80 border-b border-white/10 text-left">
+                <th className="py-3 px-2 font-bold uppercase whitespace-nowrap">Feature</th>
+                <th className="py-3 px-2 font-bold uppercase whitespace-nowrap text-center">Traditional</th>
+                <th className="py-3 px-2 font-bold uppercase whitespace-nowrap text-center text-blue-400">IntelleSkill</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row, index) => (
+                <tr key={index} className={`border-b border-white/5 ${index % 2 === 1 ? 'bg-white/5' : ''}`}>
+                  <td className="py-3 px-2 text-white/70 font-medium leading-tight">{row.label}</td>
+                  <td className="py-3 px-2 text-red-400/90 text-center leading-tight">{row.without}</td>
+                  <td className="py-3 px-2 text-green-400 text-center font-semibold leading-tight">{row.with}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

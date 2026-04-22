@@ -31,12 +31,10 @@ const UniversityHero = () => {
       >
         <motion.h1 
           variants={itemVariants}
-          className="text-4xl md:text-6xl font-bold text-white leading-tight"
+          className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 leading-tight tracking-tight px-4"
+          style={{ textShadow: '0 0 20px rgba(59,130,246,0.25)' }}
         >
-          Transform Students Into <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-            Industry-Ready Professionals
-          </span>
+          Transform Students Into <br /> Industry-Ready Professionals
         </motion.h1>
 
         <motion.div variants={itemVariants} className="mt-6">

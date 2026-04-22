@@ -34,11 +34,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: 'LinkedIn (US)', href: '#', icon: LinkedinIcon },
-    { name: 'LinkedIn (India)', href: '#', icon: LinkedinIcon },
-    { name: 'Twitter (X)', href: '#', icon: TwitterIcon },
-    { name: 'Facebook', href: '#', icon: FacebookIcon },
-    { name: 'Instagram', href: '#', icon: InstagramIcon },
+    { name: 'LinkedIn (US)', href: 'https://www.linkedin.com/company/intellesphere-llc', icon: LinkedinIcon },
+    { name: 'LinkedIn (India)', href: 'https://www.linkedin.com/company/intellesphere-pvt-ltd', icon: LinkedinIcon },
+    { name: 'Twitter (X)', href: 'https://x.com/intellesphere', icon: TwitterIcon },
+    { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61582114731128', icon: FacebookIcon },
+    { name: 'Instagram', href: 'https://www.instagram.com/intellesphere', icon: InstagramIcon },
   ];
 
   const addresses = [

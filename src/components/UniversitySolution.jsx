@@ -70,43 +70,47 @@ const UniversitySolution = () => {
           </p>
         </motion.div>
 
-        {/* Solutions Grid */}
+        {/* Solutions Grid - Premium Glow Style */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-14"
         >
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] hover:border-white/20"
-            >
-              {/* Premium Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              
-              {/* Content Container */}
-              <div className="relative z-10">
-                {/* Top Accent Line */}
-                <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
-                
-                <h3 className="text-white text-xl md:text-2xl font-semibold mb-3">
-                  {solution.title}
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-4">
-                  {solution.desc}
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 group-hover:animate-pulse"></div>
-                  <span className="text-blue-400 text-sm font-medium">
+          {solutions.map((solution, index) => {
+            // Split title for gradient effect (last 1-2 words usually)
+            const words = solution.title.split(' ');
+            const mainText = words.slice(0, -1).join(' ');
+            const accentText = words[words.length - 1];
+
+            return (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="group relative pl-8 transition-all duration-300 hover:translate-x-1"
+              >
+                {/* Subtle Left Glow */}
+                <div className="absolute left-0 top-2 w-1 h-8 bg-blue-500/40 blur-sm rounded-full"></div>
+                <div className="absolute left-0 top-2 w-[2px] h-8 bg-blue-400 rounded-full"></div>
+
+                <div className="relative z-10 space-y-2">
+                  <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight group-hover:text-white transition-colors">
+                    {mainText}{' '}
+                    <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      {accentText}
+                    </span>
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {solution.desc}
+                  </p>
+                  <p className="text-sm text-gray-300 font-medium pt-1">
                     {solution.point}
-                  </span>
+                  </p>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -141,21 +141,22 @@ const ProblemSolution = () => {
         </div>
 
         {/* Section 5: Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all group"
+              className="p-3 md:p-6 rounded-xl md:rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all group flex flex-col items-center text-center md:items-start md:text-left"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                <feature.icon size={24} className="text-white" />
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-white/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <feature.icon size={16} className="text-white md:hidden" />
+                <feature.icon size={24} className="text-white hidden md:block" />
               </div>
-              <h4 className="text-white font-bold mb-2">
+              <h4 className="text-white font-medium md:font-bold text-xs md:text-base mb-1 md:mb-2 leading-tight">
                 {feature.title}
               </h4>
-              <p className="text-slate-400 text-sm font-medium">
+              <p className="text-slate-400 text-[10px] md:text-sm font-medium leading-tight">
                 {feature.desc}
               </p>
             </motion.div>

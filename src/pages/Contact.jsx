@@ -1,0 +1,282 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Globe, Mail, Phone, Clock, ExternalLink } from 'lucide-react';
+import PremiumBackground from '../components/PremiumBackground';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
+// Custom Brand Icons as SVG components
+const FacebookIcon = ({ size = 20, ...props }) => (
+  <svg width={size} height={size} {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 20, ...props }) => (
+  <svg width={size} height={size} {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const TwitterIcon = ({ size = 20, ...props }) => (
+  <svg width={size} height={size} {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 20, ...props }) => (
+  <svg width={size} height={size} {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const socialLinks = [
+  { 
+    name: 'LinkedIn India', 
+    href: 'https://www.linkedin.com/company/intellesphere-pvt-ltd', 
+    icon: LinkedinIcon,
+    tooltip: 'Follow company updates',
+    glowColor: 'group-hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]'
+  },
+  { 
+    name: 'LinkedIn US', 
+    href: 'https://www.linkedin.com/company/intellesphere-llc', 
+    icon: LinkedinIcon,
+    tooltip: 'Follow company updates',
+    glowColor: 'group-hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]'
+  },
+  { 
+    name: 'Facebook', 
+    href: 'https://www.facebook.com/profile.php?id=61582114731128', 
+    icon: FacebookIcon,
+    tooltip: 'Community updates',
+    glowColor: 'group-hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]'
+  },
+  { 
+    name: 'Instagram', 
+    href: 'https://www.instagram.com/intellesphere', 
+    icon: InstagramIcon,
+    tooltip: 'See our journey',
+    glowColor: 'group-hover:shadow-[0_0_20px_rgba(225,48,108,0.5)]'
+  },
+  { 
+    name: 'Twitter (X)', 
+    href: 'https://x.com/intellesphere', 
+    icon: TwitterIcon,
+    tooltip: 'Latest insights',
+    glowColor: 'group-hover:shadow-[0_0_20px_rgba(29,161,242,0.5)]'
+  },
+];
+
+const Contact = () => {
+  return (
+    <div className="relative min-h-screen">
+      <PremiumBackground />
+      <Navbar />
+      
+      <main className="pt-32 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent"
+            >
+              Let’s Build Future-Ready <br className="hidden md:block" /> Careers Together
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto"
+            >
+              Whether you're a student, professional, or institution — we’re here to help you get started.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Side — Contact Info */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-10"
+            >
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
+                      <Globe className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Website</p>
+                      <a href="https://www.intelle-sphere.com" target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-blue-400 transition-colors">
+                        www.intelle-sphere.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 group-hover:bg-purple-500/20 transition-all">
+                      <Mail className="w-5 h-5 text-purple-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Email</p>
+                      <a href="mailto:upskill@intelle-sphere.com" className="text-slate-200 hover:text-purple-400 transition-colors">
+                        upskill@intelle-sphere.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-all">
+                      <Phone className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Phone</p>
+                      <div className="flex flex-col gap-1">
+                        <a href="tel:+918374503904" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 8374503904</a>
+                        <a href="tel:+917893307400" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 7893307400</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center border border-orange-500/20 group-hover:bg-orange-500/20 transition-all">
+                      <Clock className="w-5 h-5 text-orange-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Availability</p>
+                      <p className="text-slate-200 tracking-wide">
+                        Monday to Saturday — 9 AM to 7 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media Section */}
+              <div>
+                <h3 className="text-xl font-bold text-white mb-6">Connect With Us</h3>
+                <div className="flex flex-wrap gap-6">
+                  {socialLinks.map((social) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`group relative w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-all duration-300 ${social.glowColor}`}
+                    >
+                      <social.icon size={20} />
+                      {/* Tooltip */}
+                      <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-slate-900 border border-white/10 rounded-md text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20">
+                        {social.tooltip}
+                      </span>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side — Contact Form */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden"
+            >
+              {/* Background Glows for Form */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+              <form className="relative z-10 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-300 ml-1">Full Name</label>
+                    <input 
+                      type="text" 
+                      placeholder="Jane Doe"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-300 ml-1">Email Address</label>
+                    <input 
+                      type="email" 
+                      placeholder="jane@example.com"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-300 ml-1">Phone Number</label>
+                  <input 
+                    type="tel" 
+                    placeholder="+91 0000000000"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-300 ml-1">Message</label>
+                  <textarea 
+                    rows="4" 
+                    placeholder="Tell us how we can help..."
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20 resize-none"
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-full mt-4 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)]"
+                >
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+          </div>
+
+          {/* CTA Section (Bottom) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mt-32 relative text-center"
+          >
+             <div className="relative z-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-20 overflow-hidden group">
+                {/* Background animations for CTA */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px] group-hover:bg-blue-500/20 transition-all duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-[100px] group-hover:bg-indigo-500/20 transition-all duration-700"></div>
+
+                <div className="relative z-20">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Ready to See It in Action?</h2>
+                  <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                    Schedule a quick demo and explore how IntelleSkill works.
+                  </p>
+                  <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)]">
+                    Book a Free Demo
+                  </button>
+                </div>
+             </div>
+          </motion.div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;

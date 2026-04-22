@@ -3,8 +3,7 @@ const CTA = () => {
     <section className="py-24 bg-transparent">
       <div className="max-w-5xl mx-auto px-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-16 text-center text-white shadow-2xl relative overflow-hidden group">
         <div className="relative z-10">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Ready to accelerate your career?</h2>
-          <p className="text-xl md:text-2xl mb-12 text-slate-400 font-medium">Join 50,000+ learners building their future today.</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-10 tracking-tight">Ready to accelerate your career?</h2>
           <button className="bg-blue-600 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.4)]">
             Claim Your Discount
           </button>

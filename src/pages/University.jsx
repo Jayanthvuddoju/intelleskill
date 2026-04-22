@@ -3,6 +3,13 @@ import UniversityHero from '../components/UniversityHero';
 import UniversityChallenge from '../components/UniversityChallenge';
 import UniversitySolution from '../components/UniversitySolution';
 import UniversityHumanReview from '../components/UniversityHumanReview';
+import UniversityAIStep from '../components/UniversityAIStep';
+import UniversityRoles from '../components/UniversityRoles';
+import UniversityWhyCollege from '../components/UniversityWhyCollege';
+import UniversityTimeline from '../components/UniversityTimeline';
+import UniversityOutcomes from '../components/UniversityOutcomes';
+import UniversityCertification from '../components/UniversityCertification';
+import UniversityFinalCTA from '../components/UniversityFinalCTA';
 import Footer from '../components/Footer';
 import PremiumBackground from '../components/PremiumBackground';
 
@@ -16,7 +23,13 @@ const University = () => {
         <UniversityChallenge />
         <UniversitySolution />
         <UniversityHumanReview />
-        {/* Other university-specific sections can be added here later */}
+        <UniversityAIStep />
+        <UniversityRoles />
+        <UniversityWhyCollege />
+        <UniversityTimeline />
+        <UniversityOutcomes />
+        <UniversityCertification />
+        <UniversityFinalCTA />
       </main>
       <Footer />
     </div>
