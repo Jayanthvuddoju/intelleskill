@@ -62,10 +62,10 @@ const UniversitySolution = () => {
             <CheckCircle2 size={16} />
             HOW WE SOLVE
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
-            A Complete Virtual Learning and <br /> Internship Platform
+          <h2 className="text-2xl md:text-5xl font-bold text-white mt-4 mb-4 md:mb-6 leading-tight">
+            A Complete Virtual Learning and <br className="hidden md:block" /> Internship Platform
           </h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-sm md:text-xl max-w-3xl mx-auto leading-snug md:leading-relaxed">
             IntelleSkill delivers structured, AI-powered learning and internship experiences that simulate real industry work — directly from campus.
           </p>
         </motion.div>
@@ -76,7 +76,7 @@ const UniversitySolution = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-14"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14"
         >
           {solutions.map((solution, index) => {
             // Split title for gradient effect (last 1-2 words usually)
@@ -88,23 +88,23 @@ const UniversitySolution = () => {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="group relative pl-8 transition-all duration-300 hover:translate-x-1"
+                className="group relative pl-6 md:pl-8 transition-all duration-300 hover:translate-x-1"
               >
                 {/* Subtle Left Glow */}
-                <div className="absolute left-0 top-2 w-1 h-8 bg-blue-500/40 blur-sm rounded-full"></div>
-                <div className="absolute left-0 top-2 w-[2px] h-8 bg-blue-400 rounded-full"></div>
+                <div className="absolute left-0 top-1 w-1 h-6 md:h-8 bg-blue-500/40 blur-sm rounded-full"></div>
+                <div className="absolute left-0 top-1 w-[2px] h-6 md:h-8 bg-blue-400 rounded-full"></div>
 
-                <div className="relative z-10 space-y-2">
-                  <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight group-hover:text-white transition-colors">
+                <div className="relative z-10 space-y-1 md:space-y-2">
+                  <h3 className="text-white text-sm md:text-2xl font-semibold tracking-tight group-hover:text-white transition-colors">
                     {mainText}{' '}
                     <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                       {accentText}
                     </span>
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-xs md:text-base text-gray-400 leading-snug md:leading-relaxed line-clamp-3 md:line-clamp-none">
                     {solution.desc}
                   </p>
-                  <p className="text-sm text-gray-300 font-medium pt-1">
+                  <p className="text-[11px] md:text-sm text-gray-300 font-medium pt-1">
                     {solution.point}
                   </p>
                 </div>
@@ -112,6 +112,7 @@ const UniversitySolution = () => {
             );
           })}
         </motion.div>
+
       </div>
     </section>
   );

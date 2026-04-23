@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Globe, Mail, Phone, Clock, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Globe, Mail, Phone, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
 import PremiumBackground from '../components/PremiumBackground';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -73,6 +73,50 @@ const socialLinks = [
 ];
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzik91pu5-9a1S9Hi7GzsgVQQg_2kuVMYpeNiYLj-znwYVg9ocVhq9rD20Ya9z9UUaT/exec", {
+        method: "POST",
+        mode: "no-cors", // Required for Google Apps Script to avoid CORS preflight issues
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Since 'no-cors' mode doesn't allow reading the response body, 
+      // we assume success if the request was sent without throwing an error.
+      // This is a common limitation of Apps Script with fetch.
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus('error');
+      setErrorMessage('Failed to connect to the server. Please check your connection.');
+    }
+  };
+
   return (
     <div className="relative min-h-screen">
       <PremiumBackground />
@@ -199,51 +243,116 @@ const Contact = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-              <form className="relative z-10 space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300 ml-1">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Jane Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-300 ml-1">Email Address</label>
-                    <input 
-                      type="email" 
-                      placeholder="jane@example.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
-                    />
-                  </div>
-                </div>
+              <AnimatePresence mode="wait">
+                {status === 'success' ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
+                    className="relative z-10 flex flex-col items-center justify-center py-12 text-center"
+                  >
+                    <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mb-6 border border-emerald-500/30">
+                      <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                    <p className="text-slate-400 max-w-xs">
+                      Thank you for reaching out. We've received your message and will get back to you shortly.
+                    </p>
+                    <button 
+                      onClick={() => setStatus('idle')}
+                      className="mt-8 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      Send another message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.form 
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onSubmit={handleSubmit}
+                    className="relative z-10 space-y-6"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-300 ml-1">Full Name</label>
+                        <input 
+                          required
+                          name="name"
+                          type="text" 
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Jane Doe"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-300 ml-1">Email Address</label>
+                        <input 
+                          required
+                          name="email"
+                          type="email" 
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="jane@example.com"
+                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                        />
+                      </div>
+                    </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300 ml-1">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    placeholder="+91 0000000000"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
-                  />
-                </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-300 ml-1">Phone Number</label>
+                      <input 
+                        name="phone"
+                        type="tel" 
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+91 0000000000"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20"
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300 ml-1">Message</label>
-                  <textarea 
-                    rows="4" 
-                    placeholder="Tell us how we can help..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20 resize-none"
-                  ></textarea>
-                </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-300 ml-1">Message</label>
+                      <textarea 
+                        required
+                        name="message"
+                        rows="4" 
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Tell us how we can help..."
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-light text-white placeholder:text-white/20 resize-none"
+                      ></textarea>
+                    </div>
 
-                <button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-full mt-4 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)]"
-                >
-                  Send Message
-                </button>
-              </form>
+                    {status === 'error' && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-center gap-2 text-red-400 bg-red-400/10 p-4 rounded-xl border border-red-400/20"
+                      >
+                        <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                        <p className="text-sm">{errorMessage}</p>
+                      </motion.div>
+                    )}
+
+                    <button 
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-full mt-4 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    >
+                      {status === 'submitting' ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          Sending...
+                        </>
+                      ) : 'Send Message'}
+                    </button>
+                  </motion.form>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
 
@@ -280,3 +389,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

@@ -29,7 +29,7 @@ const ProfessionalHero = () => {
       >
         <motion.h1 
           variants={itemVariants}
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight"
+          className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 md:mb-6 leading-tight"
         >
           You don’t need more courses. <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
@@ -39,10 +39,11 @@ const ProfessionalHero = () => {
 
         <motion.p 
           variants={itemVariants}
-          className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed"
+          className="text-sm md:text-xl text-slate-400 max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed"
         >
           Upgrade your skills with real-world projects, AI-driven workflows, and expert reviews — built for professionals aiming for their next level.
         </motion.p>
+
 
         <motion.div 
           variants={itemVariants}

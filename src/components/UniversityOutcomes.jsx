@@ -59,7 +59,7 @@ const UniversityOutcomes = () => {
         </motion.div>
 
         {/* Premium Glassmorphic Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
           {metrics.map((metric, index) => {
             const themes = [
               { glow: "bg-blue-500/30", text: "from-blue-400 to-cyan-300" },
@@ -77,7 +77,7 @@ const UniversityOutcomes = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center transition-all duration-300 hover:border-white/20 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] group overflow-hidden cursor-default"
+                className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 md:p-8 text-left md:text-center transition-all duration-300 hover:border-white/20 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] group overflow-hidden cursor-default min-h-[100px] md:min-h-[auto]"
               >
                 {/* Subtle Inner Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-40 pointer-events-none"></div>
@@ -90,20 +90,21 @@ const UniversityOutcomes = () => {
 
                 {/* Metric Value */}
                 <div 
-                  className={`text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r ${theme.text} bg-clip-text text-transparent mb-2`}
+                  className={`text-2xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r ${theme.text} bg-clip-text text-transparent mb-1 md:mb-2`}
                   style={{ textShadow: '0 0 20px rgba(255,255,255,0.2)' }}
                 >
                   {metric.value}
                 </div>
 
                 {/* Metric Label */}
-                <p className="text-gray-300 text-sm font-medium leading-relaxed mt-4">
+                <p className="text-gray-300 text-[10px] sm:text-xs md:text-sm font-medium leading-tight md:leading-relaxed md:mt-4">
                   {metric.label}
                 </p>
               </motion.div>
             );
           })}
         </div>
+
 
         {/* Bottom Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-24 items-center">

@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import University from './pages/University';
 import Professionals from './pages/Professionals';
 import Contact from './pages/Contact';
+import AboutUs from './pages/AboutUs';
+import CarouselDemo from './components/CarouselDemo';
 import ScrollRestoration from './components/ScrollRestoration';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         <Route path="/universities" element={<University />} />
         <Route path="/professionals" element={<Professionals />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/demo" element={<CarouselDemo />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,6 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const ProfessionalHowItWorks = () => {
   const steps = [
@@ -40,6 +42,36 @@ const ProfessionalHowItWorks = () => {
     }
   ];
 
+  // Mobile State & Logic
+  const [activeStep, setActiveStep] = React.useState(0);
+  const intervalRef = React.useRef(null);
+
+  const startAutoScroll = React.useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 3000);
+  }, [steps.length]);
+
+  const stopAutoScroll = React.useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  }, []);
+
+  React.useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [startAutoScroll, stopAutoScroll]);
+
+  const handleNext = () => {
+    setActiveStep((prev) => (prev + 1) % steps.length);
+    startAutoScroll();
+  };
+
+  const handlePrev = () => {
+    setActiveStep((prev) => (prev - 1 + steps.length) % steps.length);
+    startAutoScroll();
+  };
+
   return (
     <section className="py-24 px-6 bg-transparent overflow-hidden">
       <div className="max-w-4xl mx-auto">
@@ -52,10 +84,13 @@ const ProfessionalHowItWorks = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             How it works
           </h2>
+          <p className="text-slate-400 max-w-xl mx-auto">
+            A structured, industry-aligned path designed to take you from learning to performing.
+          </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Vertical Line */}
+        {/* Desktop Layout: Static Vertical List */}
+        <div className="hidden md:block relative">
           <div className="absolute left-[39px] top-8 bottom-8 w-px bg-gradient-to-b from-blue-500/0 via-blue-500/50 to-blue-500/0" />
 
           <div className="space-y-12">
@@ -83,9 +118,67 @@ const ProfessionalHowItWorks = () => {
             ))}
           </div>
         </div>
+
+        {/* Mobile Layout: Premium Auto-Scrolling Vertical Steps (No Boxes) */}
+        <div 
+          className="block md:hidden relative px-4 flex flex-col items-center"
+          onMouseEnter={stopAutoScroll}
+          onMouseLeave={startAutoScroll}
+        >
+          {/* Top Arrow */}
+          <button 
+            onClick={handlePrev}
+            className="mb-2 w-10 h-10 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors text-white z-10"
+          >
+            <ChevronUp size={20} />
+          </button>
+
+          {/* Steps Container */}
+          <div className="relative h-[200px] w-full overflow-hidden">
+            <div 
+              className="transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col items-center"
+              style={{ transform: `translateY(-${activeStep * 200}px)` }}
+            >
+              {steps.map((step, index) => (
+                <div 
+                  key={index} 
+                  className={`h-[200px] w-full flex flex-col items-center text-center justify-center gap-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    activeStep === index ? "scale-100 opacity-100" : "scale-95 opacity-30"
+                  }`}
+                >
+                  <div className={`flex-shrink-0 text-4xl font-black bg-gradient-to-br ${step.color} bg-clip-text text-transparent`}>
+                    {step.number}
+                  </div>
+                  <div className="px-4">
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-400 font-medium leading-relaxed text-sm max-w-[280px]">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Down Arrow */}
+          <button 
+            onClick={handleNext}
+            className="mt-2 w-10 h-10 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors text-white z-10"
+          >
+            <ChevronDown size={20} />
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
 export default ProfessionalHowItWorks;
+
+
+
+
+
+

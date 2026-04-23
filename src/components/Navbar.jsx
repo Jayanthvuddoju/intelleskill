@@ -60,7 +60,7 @@ const Navbar = () => {
               {/* Main Navigation - Hidden on mobile, or could be added to a menu */}
               <div className="hidden lg:flex items-center space-x-6">
                 <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">How it works</a>
-                <a href="#" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
+                <Link to="/about" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">About Us</Link>
                 <Link to="/contact" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact Us</Link>
                 
                 <a href="#" className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] text-sm">

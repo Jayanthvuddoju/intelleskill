@@ -58,7 +58,7 @@ const UniversityTimeline = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-16 relative">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mt-16 relative">
           {/* Connecting Line (Desktop) */}
           <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 -z-10"></div>
 
@@ -71,14 +71,14 @@ const UniversityTimeline = () => {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col items-center text-center group"
             >
-              <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${step.gradient} flex items-center justify-center text-white text-xl font-bold mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300 relative`}>
-                <step.icon size={32} />
+              <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r ${step.gradient} flex items-center justify-center text-white text-xl font-bold mb-4 md:mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300 relative`}>
+                <step.icon className="w-8 h-8 md:w-10 md:h-10" />
                 <div className="absolute -inset-2 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-md"></div>
               </div>
               
-              <span className="text-blue-400 font-bold text-sm uppercase tracking-wider mb-2">{step.day}</span>
-              <h3 className="text-white text-xl font-bold mb-3">{step.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-[250px]">
+              <span className="text-blue-400 font-bold text-[10px] md:text-sm uppercase tracking-wider mb-1 md:mb-2">{step.day}</span>
+              <h3 className="text-white text-sm md:text-xl font-bold mb-2 md:mb-3">{step.title}</h3>
+              <p className="text-gray-400 text-[10px] md:text-sm leading-relaxed max-w-[250px] line-clamp-3 md:line-clamp-none">
                 {step.desc}
               </p>
             </motion.div>
@@ -91,15 +91,16 @@ const UniversityTimeline = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-8 mt-20 p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 p-6 md:p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
         >
           {bottomHighlights.map((item, index) => (
-            <div key={index} className="flex items-center gap-2 text-blue-300 text-sm font-medium">
-              <item.icon size={18} className="text-blue-400" />
+            <div key={index} className="flex items-center gap-3 text-blue-300 text-xs md:text-sm font-medium">
+              <item.icon size={18} className="text-blue-400 flex-shrink-0" />
               <span>{item.text}</span>
             </div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );

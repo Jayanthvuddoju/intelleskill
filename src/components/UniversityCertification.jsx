@@ -100,7 +100,7 @@ const UniversityCertification = () => {
           </motion.div>
 
           {/* RIGHT: Feature List */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}

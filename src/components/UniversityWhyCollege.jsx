@@ -61,10 +61,9 @@ const UniversityWhyCollege = () => {
         </motion.div>
 
         {/* BREAK GRID INTO 2 LAYERS (Staggered Layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
           {benefits.map((benefit, index) => {
             const isSecondRow = index >= 3;
-            // Theme colors for floating orbs
             const orbColors = [
               "bg-blue-500/20",
               "bg-emerald-500/20",
@@ -86,7 +85,7 @@ const UniversityWhyCollege = () => {
                   ease: "easeOut"
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className={`relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-blue-400/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] group overflow-hidden ${isSecondRow ? 'md:translate-y-6' : ''}`}
+                className={`relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg md:rounded-2xl p-3 md:p-8 min-h-[80px] md:min-h-[auto] transition-all duration-300 hover:border-blue-400/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] group overflow-hidden flex flex-col gap-1 md:gap-0 ${isSecondRow ? 'md:translate-y-6' : ''}`}
               >
                 {/* ADD INNER LIGHT GRADIENT */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-40 pointer-events-none"></div>
@@ -94,19 +93,20 @@ const UniversityWhyCollege = () => {
                 {/* ADD FLOATING LIGHT ORB (DEPTH EFFECT) */}
                 <div className={`absolute -top-10 -right-10 w-28 h-28 ${orbColors[index % orbColors.length]} blur-2xl rounded-full pointer-events-none`}></div>
                 
-                {/* ICON STYLE (DEPTH) */}
-                <div className={`w-14 h-14 rounded-xl bg-white/10 backdrop-blur border border-white/5 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,255,255,0.1)] ${benefit.color} group-hover:scale-110 transition-transform duration-500`}>
+                {/* ICON STYLE (DEPTH) - Hidden on mobile per compact requirement */}
+                <div className={`hidden md:flex w-14 h-14 rounded-xl bg-white/10 backdrop-blur border border-white/5 items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,255,255,0.1)] ${benefit.color} group-hover:scale-110 transition-transform duration-500`}>
                   <benefit.icon size={26} />
                 </div>
                 
-                <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                <h3 className="text-sm md:text-lg font-medium md:font-semibold text-white mb-1 md:mb-2 leading-tight">{benefit.title}</h3>
+                <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 leading-tight md:leading-relaxed group-hover:text-gray-300 transition-colors line-clamp-2 md:line-clamp-none">
                   {benefit.desc}
                 </p>
               </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

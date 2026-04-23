@@ -10,10 +10,11 @@ const ProfessionalShift = () => {
         transition={{ duration: 0.6 }}
         className="max-w-4xl mx-auto"
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-          It’s not about learning more. <br />
+        <h2 className="text-2xl md:text-5xl font-bold text-white leading-tight">
+          It’s not about learning more. <br className="hidden md:block" />
           It’s about <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">building proof.</span>
         </h2>
+
       </motion.div>
     </section>
   );
