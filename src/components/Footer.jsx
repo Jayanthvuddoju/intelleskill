@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoImage from '../assets/logo.png';
+import GlowyWavesBackground from './GlowyWavesBackground';
 
 // Custom Brand Icons as SVG components since lucide-react 1.8.0 omits brand icons
 const FacebookIcon = ({ size = 20, ...props }) => (
@@ -17,9 +18,9 @@ const InstagramIcon = ({ size = 20, ...props }) => (
   </svg>
 );
 
-const TwitterIcon = ({ size = 20, ...props }) => (
+const XIcon = ({ size = 20, ...props }) => (
   <svg width={size} height={size} {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
   </svg>
 );
 
@@ -37,7 +38,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'LinkedIn (US)', href: 'https://www.linkedin.com/company/intellesphere-llc', icon: LinkedinIcon },
     { name: 'LinkedIn (India)', href: 'https://www.linkedin.com/company/intellesphere-pvt-ltd', icon: LinkedinIcon },
-    { name: 'Twitter (X)', href: 'https://x.com/intellesphere', icon: TwitterIcon },
+    { name: 'X (Twitter)', href: 'https://x.com/intellesphere', icon: XIcon },
     { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61582114731128', icon: FacebookIcon },
     { name: 'Instagram', href: 'https://www.instagram.com/intellesphere', icon: InstagramIcon },
   ];
@@ -59,12 +60,12 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-slate-950 text-gray-400 py-16 px-6 overflow-hidden">
+    <footer className="relative bg-[#020617] text-gray-400 py-16 px-6 overflow-hidden">
       {/* Premium Gradient Top Border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-      {/* Background Glow Effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Interactive Glowy Waves Background */}
+      <GlowyWavesBackground className="opacity-20" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
@@ -171,4 +172,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

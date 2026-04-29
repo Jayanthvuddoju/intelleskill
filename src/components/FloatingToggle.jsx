@@ -28,7 +28,7 @@ const FloatingToggle = () => {
 
   return (
     <motion.div 
-      className="sticky top-[70px] md:top-[80px] z-40 flex justify-center mt-4 mb-4 pointer-events-none px-4"
+      className="fixed top-[70px] md:top-[80px] left-0 right-0 z-40 flex justify-center pointer-events-none px-4"
       variants={{
         visible: { y: 0, opacity: 1 },
         hidden: { y: -100, opacity: 0 }

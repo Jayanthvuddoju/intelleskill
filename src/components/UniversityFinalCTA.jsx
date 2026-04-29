@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Mail, Phone, GraduationCap, ArrowRight } from 'lucide-react';
+import { useContactModal } from '../context/ContactModalContext';
 
 const UniversityFinalCTA = () => {
+  const { openModal } = useContactModal();
   return (
     <section className="py-28 px-6 relative bg-transparent overflow-hidden">
       {/* Background Decor */}
@@ -90,7 +92,8 @@ const UniversityFinalCTA = () => {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(234, 179, 8, 0.4)" }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-8 py-4 rounded-xl shadow-lg transition-all"
+            onClick={() => openModal('Book a Free Demo')}
+            className="flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-8 py-4 rounded-xl shadow-lg transition-all cursor-pointer"
           >
             Book a Free Demo
             <ArrowRight size={20} />

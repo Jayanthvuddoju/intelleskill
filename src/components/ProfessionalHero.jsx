@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useContactModal } from '../context/ContactModalContext';
+import Silk from './Silk';
 
 const ProfessionalHero = () => {
+  const { openModal } = useContactModal();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -16,9 +19,16 @@ const ProfessionalHero = () => {
 
   return (
     <section className="relative pt-32 pb-24 px-6 overflow-hidden bg-transparent">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] pointer-events-none -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full"></div>
+      {/* SILK BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <Silk
+          speed={7.9}
+          scale={1.1}
+          color="#13134b"
+          noiseIntensity={0}
+          rotation={0}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/50 pointer-events-none" />
       </div>
 
       <motion.div 
@@ -64,7 +74,10 @@ const ProfessionalHero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row justify-center items-center gap-4"
         >
-          <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+          <button 
+            onClick={() => openModal('Start Your Upgrade')}
+            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-pointer"
+          >
             Start Your Upgrade
           </button>
           <button className="w-full sm:w-auto border border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all backdrop-blur-sm">

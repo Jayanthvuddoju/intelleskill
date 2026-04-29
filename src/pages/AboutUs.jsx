@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
-import PremiumBackground from '../components/PremiumBackground';
+import DarkVeil from '../components/DarkVeil';
 import { ArrowRight, CheckCircle2, ShieldCheck, Target, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -24,10 +24,26 @@ const AboutUs = () => {
   };
 
   return (
-    <div className="relative min-h-screen text-slate-200 selection:bg-blue-500/30">
-      <PremiumBackground />
+    <div className="relative w-full min-h-screen overflow-hidden text-slate-200 selection:bg-blue-500/30">
+      {/* BACKGROUND LAYER */}
+      <div className="fixed inset-0 z-0">
+        <DarkVeil
+          hueShift={0}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={1.3}
+          scanlineFrequency={0}
+          warpAmount={0}
+          resolutionScale={1.25}
+        />
+      </div>
 
-      <main className="relative pt-32 pb-20 overflow-hidden">
+      {/* OPTIONAL OVERLAY */}
+      <div className="fixed inset-0 z-0 bg-black/40 backdrop-blur-[1px] pointer-events-none" />
+
+      {/* CONTENT WRAPPER */}
+      <div className="relative z-10">
+        <main className="relative pt-32 pb-20 overflow-hidden">
         {/* HERO SECTION */}
         <section className="px-6 py-20 md:py-32 max-w-7xl mx-auto text-center">
           <motion.div
@@ -226,6 +242,7 @@ const AboutUs = () => {
       </main>
 
       <Footer />
+      </div>
     </div>
   );
 };

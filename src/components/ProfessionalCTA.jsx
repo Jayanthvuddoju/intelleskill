@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useContactModal } from '../context/ContactModalContext';
 
 const ProfessionalCTA = () => {
+  const { openModal } = useContactModal();
   return (
     <section className="py-24 px-6 bg-transparent overflow-hidden">
       <motion.div 
@@ -20,7 +22,8 @@ const ProfessionalCTA = () => {
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+          onClick={() => openModal('Start Your Upgrade')}
+          className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_30px_rgba(37,99,235,0.4)] cursor-pointer"
         >
           Start Your Upgrade
         </motion.button>

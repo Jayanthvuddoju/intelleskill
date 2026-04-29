@@ -1,10 +1,17 @@
+import React from 'react';
+import { useContactModal } from '../context/ContactModalContext';
+
 const CTA = () => {
+  const { openModal } = useContactModal();
   return (
     <section className="py-24 bg-transparent">
       <div className="max-w-5xl mx-auto px-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-16 text-center text-white shadow-2xl relative overflow-hidden group">
         <div className="relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-10 tracking-tight">Ready to accelerate your career?</h2>
-          <button className="bg-blue-600 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+          <button 
+            onClick={() => openModal('Claim Your Discount')}
+            className="bg-blue-600 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.4)] cursor-pointer"
+          >
             Claim Your Discount
           </button>
         </div>

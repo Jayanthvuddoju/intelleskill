@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useContactModal } from '../context/ContactModalContext';
+import Silk from './Silk';
 
 const UniversityHero = () => {
+  const { openModal } = useContactModal();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -18,9 +21,16 @@ const UniversityHero = () => {
 
   return (
     <section className="relative pt-32 pb-24 px-6 overflow-hidden bg-transparent">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] pointer-events-none -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full"></div>
+      {/* SILK BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <Silk
+          speed={7.9}
+          scale={1.1}
+          color="#13134b"
+          noiseIntensity={0}
+          rotation={0}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/50 pointer-events-none" />
       </div>
 
       <motion.div 
@@ -50,7 +60,10 @@ const UniversityHero = () => {
           variants={itemVariants}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-medium hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+          <button 
+            onClick={() => openModal('Request a Demo')}
+            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-medium hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-pointer"
+          >
             Request a Demo
           </button>
           <button className="w-full sm:w-auto border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all">

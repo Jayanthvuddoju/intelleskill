@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useContactModal } from '../context/ContactModalContext';
+import Silk from './Silk';
 
 const Hero = () => {
+  const { openModal } = useContactModal();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -18,9 +21,17 @@ const Hero = () => {
 
   return (
     <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-transparent">
-      {/* Background Decor - Adjusted for dark theme */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] pointer-events-none -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full"></div>
+      {/* SILK BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <Silk
+          speed={7.9}
+          scale={1.1}
+          color="#13134b"
+          noiseIntensity={0}
+          rotation={0}
+        />
+        {/* Optional dark gradient to smoothly transition out of the hero section at the bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617] pointer-events-none" />
       </div>
 
       <motion.div 
@@ -52,7 +63,10 @@ const Hero = () => {
         >
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             {/* PRIMARY BUTTON */}
-            <button className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-base font-medium shadow-[0_8px_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(59,130,246,0.6)]">
+            <button 
+              onClick={() => openModal('Start Learning')}
+              className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-base font-medium shadow-[0_8px_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(59,130,246,0.6)] cursor-pointer"
+            >
               Start Learning
             </button>
 
