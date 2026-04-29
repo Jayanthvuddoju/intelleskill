@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PremiumBackground from '../components/PremiumBackground';
 import { ArrowRight, CheckCircle2, ShieldCheck, Target, Zap } from 'lucide-react';
@@ -27,7 +26,6 @@ const AboutUs = () => {
   return (
     <div className="relative min-h-screen text-slate-200 selection:bg-blue-500/30">
       <PremiumBackground />
-      <Navbar />
 
       <main className="relative pt-32 pb-20 overflow-hidden">
         {/* HERO SECTION */}

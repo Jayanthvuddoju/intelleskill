@@ -1,4 +1,3 @@
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PremiumBackground from '../components/PremiumBackground';
 import ProfessionalHero from '../components/ProfessionalHero';
@@ -14,7 +13,6 @@ const Professionals = () => {
   return (
     <div className="relative min-h-screen">
       <PremiumBackground />
-      <Navbar />
       <main>
         <ProfessionalHero />
         <ProfessionalProblem />

@@ -1,4 +1,3 @@
-import Navbar from '../components/Navbar';
 import UniversityHero from '../components/UniversityHero';
 import UniversityChallenge from '../components/UniversityChallenge';
 import UniversitySolution from '../components/UniversitySolution';
@@ -17,7 +16,6 @@ const University = () => {
   return (
     <div className="relative min-h-screen">
       <PremiumBackground />
-      <Navbar />
       <main>
         <UniversityHero />
         <UniversityChallenge />

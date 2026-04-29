@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Mail, Phone, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
 import PremiumBackground from '../components/PremiumBackground';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // Custom Brand Icons as SVG components
@@ -120,7 +119,6 @@ const Contact = () => {
   return (
     <div className="relative min-h-screen">
       <PremiumBackground />
-      <Navbar />
       
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -209,7 +207,7 @@ const Contact = () => {
 
               {/* Social Media Section */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">Connect With Us</h3>
+                <h3 className="text-xl font-bold text-white mb-6">Connect</h3>
                 <div className="flex flex-wrap gap-6">
                   {socialLinks.map((social) => (
                     <motion.a

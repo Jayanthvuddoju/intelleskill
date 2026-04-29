@@ -14,7 +14,6 @@ const Home = () => {
   return (
     <div className="relative min-h-screen">
       <PremiumBackground />
-      <Navbar />
       <main>
         <Hero />
         <LearningGap />

@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logoImage from '../assets/logo.png';
 
 // Custom Brand Icons as SVG components since lucide-react 1.8.0 omits brand icons
 const FacebookIcon = ({ size = 20, ...props }) => (
@@ -61,23 +62,22 @@ const Footer = () => {
     <footer className="relative bg-slate-950 text-gray-400 py-16 px-6 overflow-hidden">
       {/* Premium Gradient Top Border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      
+
       {/* Background Glow Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
-          
+
           {/* Left Section: Logo & Tagline */}
           <div className="md:col-span-4 lg:col-span-3">
             <div className="flex flex-col gap-6">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-2xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent"
               >
-                IntelleSkill
+                <img src={logoImage} alt="IntelleSkill Logo" className="h-20 md:h-25 w-auto" />
               </motion.div>
               <p className="text-sm leading-relaxed max-w-xs transition-colors hover:text-gray-300">
                 AI-powered products for real-world outcomes.
@@ -87,14 +87,14 @@ const Footer = () => {
 
           {/* Middle Section: Locations & Contact */}
           <div className="md:col-span-5 lg:col-span-6">
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-white font-semibold mb-8 tracking-wider text-sm uppercase"
             >
               Locations
             </motion.h3>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
               {addresses.map((addr, idx) => (
                 <div key={idx} className="flex flex-col gap-3 group">
@@ -127,7 +127,7 @@ const Footer = () => {
 
           {/* Right Section: Social Links */}
           <div className="md:col-span-3 lg:col-span-3">
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-white font-semibold mb-8 tracking-wider text-sm uppercase"
@@ -137,8 +137,8 @@ const Footer = () => {
             <ul className="space-y-4">
               {socialLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="flex items-center gap-3 text-sm hover:text-white transition-all group w-fit"
                   >
                     <link.icon className="w-4 h-4 text-gray-500 group-hover:text-blue-400 transition-colors" />

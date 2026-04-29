@@ -46,6 +46,23 @@ const Hero = () => {
           AI converts real job requirements into projects you build. No fluff, just proof of work.
         </motion.p>
 
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col items-center justify-center mt-12 md:mt-16 gap-6"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            {/* PRIMARY BUTTON */}
+            <button className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-base font-medium shadow-[0_8px_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(59,130,246,0.6)]">
+              Start Learning
+            </button>
+
+            {/* SECONDARY BUTTON */}
+            <button className="px-6 md:px-8 py-3 rounded-full border border-white/20 text-white/80 text-sm md:text-base font-medium backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white hover:scale-105">
+              See How It Works
+            </button>
+          </div>
+        </motion.div>
+
       </motion.div>
     </section>
   );

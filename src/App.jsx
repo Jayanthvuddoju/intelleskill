@@ -4,13 +4,18 @@ import University from './pages/University';
 import Professionals from './pages/Professionals';
 import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
+import ToggleDemo from './pages/ToggleDemo';
 import CarouselDemo from './components/CarouselDemo';
-import ScrollRestoration from './components/ScrollRestoration';
+import ScrollToTop from './components/ScrollToTop';
+import Navbar from './components/Navbar';
+import FloatingToggle from './components/FloatingToggle';
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollRestoration />
+      <ScrollToTop />
+      <Navbar />
+      <FloatingToggle />
       <Routes>
         <Route path="/" element={<Navigate to="/students" replace />} />
         <Route path="/students" element={<Home />} />
@@ -19,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/demo" element={<CarouselDemo />} />
+        <Route path="/toggle-demo" element={<ToggleDemo />} />
       </Routes>
     </BrowserRouter>
   );
