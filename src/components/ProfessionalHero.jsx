@@ -41,9 +41,36 @@ const ProfessionalHero = () => {
           variants={itemVariants}
           className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 md:mb-6 leading-tight"
         >
-          You don’t need more courses. <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-            You need real experience that gets you ahead.
+          <span className="relative inline-block">
+            You don’t need more courses.
+            <span 
+              className="absolute inset-0 bg-clip-text text-transparent pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 30%, rgba(255,215,0,0.9) 50%, transparent 70%)',
+                backgroundSize: '250% auto',
+                animation: 'shine 8s linear infinite',
+                WebkitBackgroundClip: 'text',
+              }}
+            >
+              You don’t need more courses.
+            </span>
+          </span>
+          <br />
+          <span className="relative inline-block">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+              You need real experience that gets you ahead.
+            </span>
+            <span 
+              className="absolute inset-0 bg-clip-text text-transparent pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 30%, rgba(255,215,0,0.9) 50%, transparent 70%)',
+                backgroundSize: '250% auto',
+                animation: 'shine 8s linear infinite',
+                WebkitBackgroundClip: 'text',
+              }}
+            >
+              You need real experience that gets you ahead.
+            </span>
           </span>
         </motion.h1>
 
@@ -80,7 +107,13 @@ const ProfessionalHero = () => {
           >
             Start Your Upgrade
           </button>
-          <button className="w-full sm:w-auto border border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all backdrop-blur-sm">
+          <button 
+            onClick={() => {
+              const el = document.getElementById('professional-how-it-works');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="w-full sm:w-auto border border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all backdrop-blur-sm cursor-pointer"
+          >
             See How It Works
           </button>
         </motion.div>

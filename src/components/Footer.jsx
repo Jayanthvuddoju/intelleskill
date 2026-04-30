@@ -47,15 +47,14 @@ const Footer = () => {
     {
       title: 'US Office',
       company: 'IntelleSphere LLC',
-      line1: '2879, Grand Helios Way, Henderson,',
+      line1: 'Grand Helios Way, Henderson,',
       line2: 'NV 89052, USA',
     },
     {
       title: 'India Office',
       company: 'IntelleSphere Pvt. Ltd.',
-      line1: 'SVL Pride, HMDA Layout,',
-      line2: 'Beside Mini Shilparamam,',
-      line3: 'Hyderabad, 500039, India',
+      line1: 'Beside Mini Shilparamam,',
+      line2: 'Hyderabad, 500039, India',
     },
   ];
 
@@ -80,9 +79,12 @@ const Footer = () => {
               >
                 <img src={logoImage} alt="IntelleSkill Logo" className="h-20 md:h-25 w-auto" />
               </motion.div>
-              <p className="text-sm leading-relaxed max-w-xs transition-colors hover:text-gray-300">
-                AI-powered products for real-world outcomes.
-              </p>
+              <div className="text-sm leading-relaxed max-w-xs transition-colors hover:text-gray-300">
+                <span className="text-base font-bold text-white block mb-2">Built to go beyond learning</span>
+                <p className="text-gray-400">
+                  An AI-powered experience where knowledge becomes execution, projects become proof, and skills become real-world outcomes.
+                </p>
+              </div>
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import University from './pages/University';
 import Professionals from './pages/Professionals';
 import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
+import Curriculum from './pages/Curriculum';
 import ToggleDemo from './pages/ToggleDemo';
 import CarouselDemo from './components/CarouselDemo';
 import ScrollToTop from './components/ScrollToTop';
@@ -51,6 +52,7 @@ function App() {
             <Route path="/professionals" element={<Professionals />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/curriculum" element={<Curriculum />} />
             <Route path="/demo" element={<CarouselDemo />} />
             <Route path="/toggle-demo" element={<ToggleDemo />} />
           </Routes>

@@ -135,7 +135,7 @@ const UniversityHumanReview = () => {
   };
 
   return (
-    <section className="py-32 px-6 bg-transparent relative">
+    <section id="human-review-section" className="py-32 px-6 bg-transparent relative">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start justify-between">
           
@@ -162,7 +162,7 @@ const UniversityHumanReview = () => {
               </motion.h2>
               <motion.p 
                 variants={itemVariants}
-                className="text-gray-300 mt-6 text-lg leading-relaxed tracking-wide"
+                className="text-slate-300 mt-6 text-lg leading-relaxed tracking-wide"
               >
                 Unlike fully automated platforms, IntelleSkill brings real Senior Developers and Product Owners into the review process — giving students authentic industry feedback, not just AI scores.
               </motion.p>
@@ -180,7 +180,7 @@ const UniversityHumanReview = () => {
                 ].map((point, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" strokeWidth={3} />
-                    <span className="text-gray-300 text-sm leading-tight tracking-wide">{point}</span>
+                    <span className="text-slate-300 text-sm leading-tight tracking-wide">{point}</span>
                   </div>
                 ))}
               </motion.div>
@@ -197,7 +197,7 @@ const UniversityHumanReview = () => {
                     </div>
                     <div className="mt-0 md:mt-1">
                       <h4 className="text-white font-medium text-sm md:text-lg tracking-wide">{role.title}</h4>
-                      <p className="hidden md:block text-gray-400 text-sm mt-1 leading-relaxed tracking-wide">
+                      <p className="hidden md:block text-slate-400 text-sm mt-1 leading-relaxed tracking-wide">
                         {role.desc}
                       </p>
                     </div>
@@ -234,13 +234,13 @@ const UniversityHumanReview = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-gray-400 text-sm italic mb-6">
+                  <p className="text-slate-400 text-sm italic mb-6">
                     {gate.trigger}
                   </p>
 
                   <ul className="space-y-4">
                     {gate.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-4 text-gray-300 text-sm md:text-base">
+                      <li key={i} className="flex items-start gap-4 text-slate-300 text-sm md:text-base">
                         <div className="mt-1 flex-shrink-0">
                           <Check size={18} className="text-green-400" strokeWidth={3} />
                         </div>
@@ -294,13 +294,13 @@ const UniversityHumanReview = () => {
                           </h3>
                         </div>
                         
-                        <p className="text-gray-400 text-xs italic mb-4">
+                        <p className="text-slate-400 text-xs italic mb-4">
                           {gate.trigger}
                         </p>
 
                         <ul className="space-y-3">
                           {gate.points.map((point, i) => (
-                            <li key={i} className="flex items-start gap-3 text-gray-300 text-xs">
+                            <li key={i} className="flex items-start gap-3 text-slate-300 text-xs">
                               <Check size={14} className="text-green-400 mt-0.5 flex-shrink-0" strokeWidth={3} />
                               <span>{point}</span>
                             </li>

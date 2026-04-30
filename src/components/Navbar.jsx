@@ -28,7 +28,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#" className="text-white/70 hover:text-white transition-colors text-sm font-medium">Curriculum</a>
+              <Link to="/curriculum" className="text-white/70 hover:text-white transition-colors text-sm font-medium">Curriculum</Link>
               <Link to="/about" className="text-white/70 hover:text-white transition-colors text-sm font-medium">About</Link>
               <Link to="/contact" className="text-white/70 hover:text-white transition-colors text-sm font-medium">Contact</Link>
 
@@ -76,13 +76,13 @@ const Navbar = () => {
               className="absolute top-full right-4 w-56 mt-2 md:hidden"
             >
               <div className="bg-[#0f172a]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-4 shadow-2xl">
-                <a
-                  href="#"
+                <Link
+                  to="/curriculum"
                   onClick={closeMenu}
                   className="text-white/80 hover:text-white text-base font-medium transition-colors py-1 w-full text-center"
                 >
                   Curriculum
-                </a>
+                </Link>
                 <Link
                   to="/about"
                   onClick={closeMenu}

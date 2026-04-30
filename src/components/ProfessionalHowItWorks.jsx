@@ -73,7 +73,7 @@ const ProfessionalHowItWorks = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-transparent overflow-hidden">
+    <section id="professional-how-it-works" className="py-24 px-6 bg-transparent overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

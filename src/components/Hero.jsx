@@ -44,9 +44,36 @@ const Hero = () => {
           variants={itemVariants}
           className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
         >
-          You don’t build <span className="text-slate-500 line-through decoration-slate-700 decoration-3">practice projects</span>. <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-            You build what companies hire for.
+          <span className="relative inline-block">
+            You don’t build <span className="text-slate-500 line-through decoration-slate-700 decoration-3">practice projects</span>.
+            <span 
+              className="absolute inset-0 bg-clip-text text-transparent pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 30%, rgba(255,215,0,0.9) 50%, transparent 70%)',
+                backgroundSize: '250% auto',
+                animation: 'shine 8s linear infinite',
+                WebkitBackgroundClip: 'text',
+              }}
+            >
+              You don’t build practice projects.
+            </span>
+          </span>
+          <br />
+          <span className="relative inline-block">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+              You build what companies hire for.
+            </span>
+            <span 
+              className="absolute inset-0 bg-clip-text text-transparent pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 30%, rgba(255,215,0,0.9) 50%, transparent 70%)',
+                backgroundSize: '250% auto',
+                animation: 'shine 8s linear infinite',
+                WebkitBackgroundClip: 'text',
+              }}
+            >
+              You build what companies hire for.
+            </span>
           </span>
         </motion.h1>
 
@@ -69,9 +96,14 @@ const Hero = () => {
             >
               Start Learning
             </button>
-
-            {/* SECONDARY BUTTON */}
-            <button className="px-6 md:px-8 py-3 rounded-full border border-white/20 text-white/80 text-sm md:text-base font-medium backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white hover:scale-105">
+{/* SECONDARY BUTTON */}
+            <button 
+              onClick={() => {
+                const el = document.getElementById('how-it-works-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-6 md:px-8 py-3 rounded-full border border-white/20 text-white/80 text-sm md:text-base font-medium backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white hover:scale-105 cursor-pointer"
+            >
               See How It Works
             </button>
           </div>

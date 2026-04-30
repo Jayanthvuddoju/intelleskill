@@ -43,9 +43,9 @@ const AboutUs = () => {
 
       {/* CONTENT WRAPPER */}
       <div className="relative z-10">
-        <main className="relative pt-32 pb-20 overflow-hidden">
+        <main className="relative pt-24 pb-20 overflow-hidden">
         {/* HERO SECTION */}
-        <section className="px-6 py-20 md:py-32 max-w-7xl mx-auto text-center">
+        <section className="px-6 py-12 md:py-24 max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -76,7 +76,7 @@ const AboutUs = () => {
         </section>
 
         {/* SECTION 1: WHY WE EXIST */}
-        <section className="px-6 py-24 border-t border-white/5">
+        <section className="px-6 py-24">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeIn} className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Why We Exist</h2>
@@ -96,7 +96,7 @@ const AboutUs = () => {
         </section>
 
         {/* SECTION 2: OUR PHILOSOPHY */}
-        <section className="px-6 py-24 bg-white/[0.02] border-y border-white/5">
+        <section className="px-6 py-24">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeIn} className="space-y-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Our Approach to Learning</h2>
@@ -143,7 +143,7 @@ const AboutUs = () => {
                   <motion.div 
                     key={i}
                     variants={fadeIn}
-                    className="flex items-center gap-6 pb-6 border-b border-white/5 group"
+                    className="flex items-center gap-6 pb-6 group"
                   >
                     <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors">
                       {item.icon}
@@ -157,7 +157,7 @@ const AboutUs = () => {
         </section>
 
         {/* SECTION 4: BUILT FOR A NEW GENERATION */}
-        <section className="px-6 py-24 bg-blue-600/5 border-y border-white/5 relative overflow-hidden">
+        <section className="px-6 py-24 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.1),transparent_70%)] pointer-events-none" />
           <div className="max-w-4xl mx-auto relative z-10">
             <motion.div {...fadeIn} className="space-y-8 text-center md:text-left">
