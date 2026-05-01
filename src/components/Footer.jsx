@@ -121,9 +121,9 @@ const Footer = () => {
                 <Phone className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
                 <span>IN: +91 8374503904</span>
               </a>
-              <a href="mailto:upskill@intelle-sphere.com" className="flex items-center gap-2 text-sm hover:text-white transition-all group">
+              <a href="mailto:info@intelle-sphere.com" className="flex items-center gap-2 text-sm hover:text-white transition-all group">
                 <Mail className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                <span>upskill@intelle-sphere.com</span>
+                <span>info@intelle-sphere.com</span>
               </a>
             </div>
           </div>
