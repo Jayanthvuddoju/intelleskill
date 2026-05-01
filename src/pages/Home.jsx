@@ -23,12 +23,13 @@ const Home = () => {
           speed={1.3}
           scanlineFrequency={0}
           warpAmount={0}
-          resolutionScale={1.25}
+          resolutionScale={1.0}
         />
       </div>
 
       {/* OPTIONAL OVERLAY */}
-      <div className="fixed inset-0 z-0 bg-black/40 backdrop-blur-[1px] pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-black/40 pointer-events-none" />
+
 
       {/* CONTENT WRAPPER */}
       <div className="relative z-10">

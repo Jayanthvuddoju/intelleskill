@@ -129,7 +129,8 @@ const LearningGap = () => {
               className="group relative"
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-white/20 group-hover:shadow-xl flex flex-col items-center text-center">
+              <div className="relative h-full bg-white/[0.03] border border-white/10 rounded-2xl p-8 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-white/20 group-hover:shadow-xl flex flex-col items-center text-center">
+
                 <div className={`absolute top-0 left-0 w-full h-1 rounded-t-2xl bg-gradient-to-r ${card.accent}`}></div>
                 <div className="mb-6 p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
                   <card.icon className="w-8 h-8 text-white/70" />

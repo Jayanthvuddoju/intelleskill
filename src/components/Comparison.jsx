@@ -75,7 +75,8 @@ const Comparison = () => {
                 duration: 0.5,
                 ease: "easeOut" 
               }}
-              className="grid md:grid-cols-3 gap-6 items-stretch bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 overflow-visible group"
+              className="grid md:grid-cols-3 gap-6 items-stretch bg-white/[0.03] border border-white/10 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 overflow-visible group"
+
             >
               {/* Feature Label */}
               <div className="flex items-center p-6 text-white font-medium text-lg md:text-base">
