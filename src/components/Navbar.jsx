@@ -34,7 +34,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => openModal('Get Started')}
-                className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:bg-blue-500 transition-all whitespace-nowrap cursor-pointer"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-[0_8px_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(59,130,246,0.6)] whitespace-nowrap cursor-pointer"
               >
                 Get Started
               </button>
@@ -103,7 +103,7 @@ const Navbar = () => {
                     closeMenu();
                     openModal('Get Started');
                   }}
-                  className="bg-blue-600 text-white w-full py-3 rounded-xl font-bold text-sm text-center shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:bg-blue-500 transition-all block cursor-pointer"
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white w-full py-3 rounded-xl font-bold text-sm text-center shadow-[0_8px_30px_rgba(59,130,246,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(59,130,246,0.6)] block cursor-pointer"
                 >
                   Get Started
                 </button>
