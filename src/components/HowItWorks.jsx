@@ -19,8 +19,7 @@ const StepCard = ({ icon: Icon, title, text, index }) => (
     transition={{ delay: index * 0.1 }}
     className="relative p-4 md:p-6 flex flex-col items-center text-center group z-10 w-full"
   >
-    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/10 shadow-xl border border-white/10 text-blue-400 flex items-center justify-center mb-4 transition-all group-hover:scale-110 group-hover:bg-white/20 group-hover:border-white/30 duration-300 relative">
-
+    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/10 backdrop-blur-sm shadow-xl border border-white/10 text-blue-400 flex items-center justify-center mb-4 transition-all group-hover:scale-110 group-hover:bg-white/20 group-hover:border-white/30 duration-300 relative">
       <Icon size={24} />
       <div className="absolute -top-2 -right-2 w-6 h-6 md:w-7 md:h-7 rounded-full bg-blue-600 text-white text-[10px] md:text-xs font-bold flex items-center justify-center border-2 md:border-4 border-[#020617]">
         {index + 1}

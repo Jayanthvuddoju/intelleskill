@@ -88,10 +88,9 @@ export default function DarkVeil({
     const parent = canvas.parentElement;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 1.0),
+      dpr: Math.min(window.devicePixelRatio, 2),
       canvas
     });
-
 
     const gl = renderer.gl;
     const geometry = new Triangle(gl);
