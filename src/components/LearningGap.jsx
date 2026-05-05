@@ -8,19 +8,22 @@ const LearningGap = () => {
       title: "No Real Output",
       text: "Students complete courses, but have nothing to show in an interview. No projects. No proof. No confidence.",
       icon: FileX,
-      accent: "from-red-500 to-rose-500"
+      color: "text-red-400",
+      glow: "group-hover:shadow-red-500/20"
     },
     {
       title: "Same for Everyone",
       text: "Most platforms give identical, pre-built projects that don’t reflect real industry work. No personalization. No relevance.",
       icon: Layers,
-      accent: "from-yellow-400 to-amber-500"
+      color: "text-amber-400",
+      glow: "group-hover:shadow-amber-500/20"
     },
     {
       title: "Not What Companies Need",
       text: "Students build basic or outdated projects that don’t match current hiring requirements. Skills learned ≠ skills demanded.",
       icon: Target,
-      accent: "from-purple-500 to-violet-500"
+      color: "text-purple-400",
+      glow: "group-hover:shadow-purple-500/20"
     }
   ];
 
@@ -50,25 +53,20 @@ const LearningGap = () => {
   }, [index, isTransitioning]);
 
   const handleNext = () => {
-    // Fix 7 & Fix 1
     if (!isTransitioning) return;
     if (index >= totalCards + 1) return;
-    
     setIsTransitioning(true);
     setIndex((prev) => prev + 1);
   };
 
   const handlePrev = () => {
-    // Fix 7 & Fix 1
     if (!isTransitioning) return;
     if (index <= 0) return;
-    
     setIsTransitioning(true);
     setIndex((prev) => prev - 1);
   };
 
   const onTransitionEnd = () => {
-    // Fix 2: Safe Loop Reset
     if (index === 0) {
       setIsTransitioning(false);
       setIndex(totalCards);
@@ -106,36 +104,47 @@ const LearningGap = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent">
+    <section className="py-24 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-semibold text-center tracking-tight text-white mb-16"
+          className="text-3xl md:text-5xl font-extrabold text-center tracking-tight text-white mb-20"
         >
           The Learning Gap
         </motion.h2>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
+        <div className="hidden lg:grid grid-cols-3 gap-6">
           {cards.length > 0 && cards.map((card, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              whileHover={{ y: -8 }}
               className="group relative"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:border-white/20 group-hover:shadow-xl flex flex-col items-center text-center">
-                <div className={`absolute top-0 left-0 w-full h-1 rounded-t-2xl bg-gradient-to-r ${card.accent}`}></div>
-                <div className="mb-6 p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
-                  <card.icon className="w-8 h-8 text-white/70" />
+              <div className="absolute -inset-[1px] bg-gradient-to-b from-white/20 to-transparent rounded-[2rem] group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-500 -z-10 opacity-50 group-hover:opacity-100"></div>
+              <div className={`relative h-full bg-[#030712]/80 backdrop-blur-2xl p-8 rounded-[2rem] flex flex-col items-start transition-all duration-300 shadow-2xl ${card.glow}`}>
+                <div className="flex items-center gap-4 mb-6 w-full">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-110 transition-all duration-500">
+                    <card.icon className={`w-7 h-7 ${card.color}`} />
+                  </div>
+                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/10 to-transparent"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-white">{card.title}</h3>
-                <p className="text-sm text-gray-300 leading-relaxed mt-3">{card.text}</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all">
+                  {card.title}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-medium group-hover:text-slate-300 transition-colors">
+                  {card.text}
+                </p>
+                <div className="mt-8 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className={`w-2 h-2 rounded-full ${card.color} animate-pulse`}></div>
+                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Major Gap</span>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -143,12 +152,12 @@ const LearningGap = () => {
 
         {/* Mobile Slider Layout */}
         {displayCards.length > 0 && (
-          <div className="block md:hidden relative group max-w-xl mx-auto">
+          <div className="block lg:hidden relative group max-w-xl mx-auto">
             {/* Arrow Buttons */}
             <button 
               onClick={handlePrev}
               disabled={!isTransitioning}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-1 bg-white/10 backdrop-blur-md rounded-full w-9 h-9 flex items-center justify-center text-white/50 hover:text-white transition-colors disabled:opacity-30"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-1 bg-white/10 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors disabled:opacity-30"
             >
               <ChevronLeft size={24} />
             </button>
@@ -156,12 +165,12 @@ const LearningGap = () => {
             <button 
               onClick={handleNext}
               disabled={!isTransitioning}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-1 bg-white/10 backdrop-blur-md rounded-full w-9 h-9 flex items-center justify-center text-white/50 hover:text-white transition-colors disabled:opacity-30"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-1 bg-white/10 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors disabled:opacity-30"
             >
               <ChevronRight size={24} />
             </button>
 
-            <div className="relative overflow-hidden min-h-[240px]">
+            <div className="relative overflow-hidden min-h-[280px]">
               <div 
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
@@ -174,16 +183,13 @@ const LearningGap = () => {
                 }}
               >
                 {displayCards.map((card, idx) => (
-                  <div key={idx} className="w-full flex-shrink-0 px-4 h-full flex flex-col justify-center">
-                    <div className="h-[220px] bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 flex flex-col justify-between text-center relative overflow-hidden">
-                      <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${card.accent}`}></div>
-                      <div className="flex flex-col items-center gap-3">
-                        <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                          <card.icon className="w-6 h-6 text-white/70" />
-                        </div>
-                        <h3 className="text-lg font-semibold text-white leading-tight">{card.title}</h3>
-                        <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">{card.text}</p>
+                  <div key={idx} className="w-full flex-shrink-0 px-4">
+                    <div className="relative bg-[#030712]/80 backdrop-blur-2xl p-6 rounded-[2rem] border border-white/10 flex flex-col items-center text-center h-full min-h-[260px]">
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                        <card.icon className={`w-6 h-6 ${card.color}`} />
                       </div>
+                      <h3 className="text-xl font-bold text-white mb-3">{card.title}</h3>
+                      <p className="text-slate-400 text-xs leading-relaxed font-medium line-clamp-3">{card.text}</p>
                     </div>
                   </div>
                 ))}
@@ -202,15 +208,14 @@ const LearningGap = () => {
                   }}
                   className={`h-2.5 w-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                     getActiveDot() === i
-                      ? "bg-blue-400 scale-110 shadow-[0_0_8px_rgba(59,130,246,0.6)]"
-                      : "bg-white/30"
+                      ? "bg-blue-400 scale-125 shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                      : "bg-white/20"
                   }`}
                 />
               ))}
             </div>
           </div>
         )}
-
       </div>
     </section>
   );
