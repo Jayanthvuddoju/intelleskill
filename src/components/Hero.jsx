@@ -88,7 +88,7 @@ const Hero = () => {
           variants={itemVariants}
           className="flex flex-col items-center justify-center mt-12 md:mt-16 gap-6"
         >
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <div className="flex flex-row gap-3 md:gap-4 items-center justify-center">
             {/* PRIMARY BUTTON */}
             <button 
               onClick={() => openModal('Start Learning')}

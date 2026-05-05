@@ -3,8 +3,10 @@ import Footer from '../components/Footer';
 import DarkVeil from '../components/DarkVeil';
 import { ArrowRight, CheckCircle2, ShieldCheck, Target, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../context/ContactModalContext';
 
 const AboutUs = () => {
+  const { openModal } = useContactModal();
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -211,30 +213,33 @@ const AboutUs = () => {
         </section>
 
         {/* CTA SECTION */}
-        <section className="px-6 py-20">
+        <section className="px-6 py-24">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden group shadow-2xl shadow-blue-500/20"
+            className="max-w-5xl mx-auto p-12 md:p-20 rounded-[3rem] bg-white/5 backdrop-blur-3xl border border-white/10 relative overflow-hidden group shadow-[0_0_80px_-20px_rgba(59,130,246,0.2)]"
           >
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-3xl rounded-full -mr-20 -mt-20 group-hover:bg-white/20 transition-colors duration-700" />
+            {/* Ambient background glows */}
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 blur-[100px] rounded-full group-hover:bg-blue-600/30 transition-colors duration-700" />
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600/20 blur-[100px] rounded-full group-hover:bg-indigo-600/30 transition-colors duration-700" />
+            
             <div className="relative z-10 text-center space-y-10">
               <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Ready to transform how you build capability?</h2>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Link 
                   to="/students" 
-                  className="w-full sm:w-auto px-10 py-5 rounded-full bg-white text-blue-700 font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3"
+                  className="w-full sm:w-auto px-10 py-5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgba(59,130,246,0.4)] flex items-center justify-center gap-3"
                 >
                   Explore Platform
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link 
-                  to="/contact" 
-                  className="w-full sm:w-auto px-10 py-5 rounded-full bg-blue-900/30 text-white font-bold text-lg border border-white/20 hover:bg-blue-900/50 transition-all backdrop-blur-sm"
+                <button 
+                  onClick={() => openModal('Get Started')}
+                  className="w-full sm:w-auto px-10 py-5 rounded-full bg-blue-900/30 text-white font-bold text-lg border border-white/20 hover:bg-blue-900/50 transition-all backdrop-blur-sm cursor-pointer"
                 >
                   Get Started
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>

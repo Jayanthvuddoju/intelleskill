@@ -106,9 +106,6 @@ const ProblemSolution = () => {
                   {stat.label}
                 </p>
               </div>
-              <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-white`}>
-                <AlertTriangle size={80} />
-              </div>
             </motion.div>
           ))}
         </div>

@@ -65,7 +65,7 @@ const UniversityRoles = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [index, isTransitioning]);
 

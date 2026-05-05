@@ -23,6 +23,13 @@ const UniversityHero = () => {
     <section className="relative pt-32 pb-24 px-6 overflow-hidden bg-transparent">
       {/* SILK BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none -z-10">
+        <Silk
+          speed={7.9}
+          scale={1.1}
+          color="#13134b"
+          noiseIntensity={0}
+          rotation={0}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/50 pointer-events-none" />
       </div>
 
@@ -80,11 +87,11 @@ const UniversityHero = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 flex flex-row items-center justify-center gap-3 md:gap-4"
         >
           <button 
             onClick={() => openModal('Request a Demo')}
-            className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 hover:scale-105 text-white px-8 py-4 rounded-full font-medium transition-all shadow-[0_8px_30px_rgba(59,130,246,0.4)] cursor-pointer"
+            className="bg-gradient-to-r from-blue-500 to-blue-600 hover:scale-105 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium transition-all shadow-[0_8px_30px_rgba(59,130,246,0.4)] cursor-pointer text-sm md:text-base whitespace-nowrap"
           >
             Request a Demo
           </button>
@@ -93,7 +100,7 @@ const UniversityHero = () => {
               const el = document.getElementById('human-review-section');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="w-full sm:w-auto border border-white/20 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all cursor-pointer"
+            className="border border-white/20 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium hover:bg-white/10 transition-all cursor-pointer text-sm md:text-base whitespace-nowrap"
           >
             See How It Works
           </button>

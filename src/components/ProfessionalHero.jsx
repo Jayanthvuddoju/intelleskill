@@ -39,7 +39,7 @@ const ProfessionalHero = () => {
       >
         <motion.h1 
           variants={itemVariants}
-          className="text-3xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 md:mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
         >
           <span className="relative inline-block">
             You don’t need more courses.
@@ -76,7 +76,7 @@ const ProfessionalHero = () => {
 
         <motion.p 
           variants={itemVariants}
-          className="text-sm md:text-xl text-slate-400 max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed"
+          className="mt-8 text-xl text-slate-400 max-w-3xl mx-auto font-medium"
         >
           Upgrade your skills with real-world projects, AI-driven workflows, and expert reviews — built for professionals aiming for their next level.
         </motion.p>
@@ -84,7 +84,7 @@ const ProfessionalHero = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="flex flex-wrap justify-center items-center gap-4 text-xs md:text-sm font-medium text-slate-500 uppercase tracking-widest mb-12"
+          className="flex flex-wrap justify-center items-center gap-4 text-xs md:text-sm font-medium text-slate-500 uppercase tracking-widest mt-12 md:mt-16 mb-12"
         >
           <span>Learn</span>
           <span className="text-blue-500">→</span>
@@ -99,11 +99,11 @@ const ProfessionalHero = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="flex flex-col sm:flex-row justify-center items-center gap-4"
+          className="flex flex-row justify-center items-center gap-3 md:gap-4"
         >
           <button 
             onClick={() => openModal('Start Your Upgrade')}
-            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-pointer text-sm md:text-base whitespace-nowrap"
           >
             Start Your Upgrade
           </button>
@@ -112,7 +112,7 @@ const ProfessionalHero = () => {
               const el = document.getElementById('professional-how-it-works');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="w-full sm:w-auto border border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all backdrop-blur-sm cursor-pointer"
+            className="border border-white/20 hover:bg-white/10 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold transition-all backdrop-blur-sm cursor-pointer text-sm md:text-base whitespace-nowrap"
           >
             See How It Works
           </button>
