@@ -7,6 +7,7 @@ import UniversityRoles from '../components/UniversityRoles';
 import UniversityWhyCollege from '../components/UniversityWhyCollege';
 import UniversityTimeline from '../components/UniversityTimeline';
 import UniversityOutcomes from '../components/UniversityOutcomes';
+import UniversityCertification from '../components/UniversityCertification';
 
 import UniversityFinalCTA from '../components/UniversityFinalCTA';
 import Footer from '../components/Footer';
@@ -44,6 +45,7 @@ const University = () => {
           <UniversityTimeline />
           <UniversityOutcomes />
 
+          <UniversityCertification />
           <UniversityFinalCTA />
         </main>
         <Footer />

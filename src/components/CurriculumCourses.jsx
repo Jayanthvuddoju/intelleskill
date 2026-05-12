@@ -36,7 +36,10 @@ const courses = [
   }
 ];
 
+import { useContactModal } from '../context/ContactModalContext';
+
 const CurriculumCourses = () => {
+  const { openModal } = useContactModal();
   return (
     <section className="relative py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -114,14 +117,12 @@ const CurriculumCourses = () => {
 
                 {/* CTA Button */}
                 <div className="mt-12 relative z-10">
-                  <a 
-                    href="https://forms.office.com/pages/responsepage.aspx?id=tyjdRuz3r0e4Spk5XXjNRu6D1IpZpNpEhgSE6_5_gVZUMzBRUEJITVhLWFRXV0dNNUVPTFZMMEpFSyQlQCN0PWcu&origin=QRCode&route=shorturl"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={() => openModal(`Enroll in ${course.title}`)}
                     className="block w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-900 via-indigo-800 to-orange-600 text-white text-center font-bold text-base hover:opacity-90 transition-all shadow-[0_10px_20px_-5px_rgba(255,255,255,0.1)] active:scale-[0.98] cursor-pointer"
                   >
                     Enroll Now
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>

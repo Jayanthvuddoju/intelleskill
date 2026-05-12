@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Link, BarChart3, Share2, Hexagon, Award } from 'lucide-react';
+import { ShieldCheck, Link, BarChart3, Share2, Award } from 'lucide-react';
+import certificateImg from '../assets/certificate.png';
 
 const UniversityCertification = () => {
   const features = [
@@ -24,7 +25,7 @@ const UniversityCertification = () => {
     },
     {
       title: "LinkedIn Ready",
-      desc: "Students can showcase directly on LinkedIn profiles",
+      desc: "You can showcase directly on LinkedIn profiles",
       icon: Share2,
       color: "text-blue-500"
     }
@@ -57,34 +58,14 @@ const UniversityCertification = () => {
             {/* Glow Background */}
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
             
-            {/* Certificate Placeholder */}
-            <div className="relative aspect-[1.4/1] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col p-12">
-              <div className="flex justify-between items-start mb-8">
-                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <Hexagon className="text-blue-400" size={40} />
-                </div>
-                <div className="text-right">
-                  <div className="text-white/20 text-xs tracking-widest uppercase">Verification ID</div>
-                  <div className="text-blue-400/50 text-sm font-mono">IS-2024-9842-AX</div>
-                </div>
-              </div>
+            {/* Certificate Image Container */}
+            <div className="relative aspect-[1.4/1] bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center p-2 sm:p-4">
+              <img 
+                src={certificateImg} 
+                alt="IntelleSkill Certificate" 
+                className="w-full h-full object-contain rounded-lg"
+              />
               
-              <div className="space-y-4">
-                <div className="h-4 w-48 bg-white/5 rounded"></div>
-                <div className="h-12 w-full bg-gradient-to-r from-white/10 to-white/5 rounded"></div>
-                <div className="h-4 w-64 bg-white/5 rounded"></div>
-              </div>
-
-              <div className="mt-auto flex justify-between items-end">
-                <div className="space-y-2">
-                  <div className="h-3 w-24 bg-white/5 rounded"></div>
-                  <div className="h-8 w-32 bg-white/10 rounded"></div>
-                </div>
-                <div className="w-24 h-24 border-2 border-white/5 rounded-lg flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white/5 rounded"></div>
-                </div>
-              </div>
-
               {/* Shine Overlay */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </div>

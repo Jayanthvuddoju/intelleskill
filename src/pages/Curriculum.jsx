@@ -4,6 +4,7 @@ import DarkVeil from '../components/DarkVeil';
 import CurriculumHero from '../components/CurriculumHero';
 import CurriculumCourses from '../components/CurriculumCourses';
 import CurriculumContent from '../components/CurriculumContent';
+import UniversityCertification from '../components/UniversityCertification';
 
 const Curriculum = () => {
   return (
@@ -30,6 +31,7 @@ const Curriculum = () => {
           <CurriculumHero />
           <CurriculumCourses />
           <CurriculumContent />
+          <UniversityCertification />
         </main>
         <Footer />
       </div>

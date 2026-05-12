@@ -163,10 +163,7 @@ const Footer = () => {
           <p className="text-xs text-gray-500">
             © {currentYear} IntelleSkill. All rights reserved.
           </p>
-          <div className="flex gap-6 text-[10px] uppercase font-bold tracking-widest text-gray-600">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
+
         </div>
       </div>
     </footer>

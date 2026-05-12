@@ -31,19 +31,46 @@ const ContactForm = ({ isModal = false, onSuccess }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    // Allows +, digits, spaces, hyphens, parentheses
+    // Minimum 7 digits, Maximum 20 characters
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 7 && digitsOnly.length <= 15 && /^[\d\s\-+()]+$/.test(phone);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Basic Validation
+    if (!validateEmail(formData.email)) {
+      setStatus('error');
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    if (formData.phone && !validatePhone(formData.phone)) {
+      setStatus('error');
+      setErrorMessage('Please enter a valid phone number (at least 7 digits).');
+      return;
+    }
+
     setStatus('submitting');
     setErrorMessage('');
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbzik91pu5-9a1S9Hi7GzsgVQQg_2kuVMYpeNiYLj-znwYVg9ocVhq9rD20Ya9z9UUaT/exec", {
+      // REPLACE THE URL BELOW WITH YOUR SHEETDB API URL
+      await fetch("YOUR_SHEETDB_API_URL_HERE", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          data: [formData]
+        }),
       });
 
       setStatus('success');
