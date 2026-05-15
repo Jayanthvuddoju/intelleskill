@@ -164,6 +164,7 @@ const Contact = () => {
                         <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Phone</p>
                         <div className="flex flex-col gap-1">
                           <a href="tel:+918374503904" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 8374503904</a>
+                          <a href="tel:+917893307400" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 7893307400</a>
                           <a href="tel:+17204145030" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+1 720-414-5030</a>
                         </div>
                       </div>

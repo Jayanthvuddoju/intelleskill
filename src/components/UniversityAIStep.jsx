@@ -6,7 +6,7 @@ const UniversityAIStep = () => {
   const cards = [
     {
       title: "Project Generation",
-      desc: "Creates domain-specific projects aligned with role and industry demand",
+      desc: "Creates domain-specific projects aligned with role and industry demand in sectors like Banking, Telecom, HealthCare, Retail, and E-Commerce",
       icon: Wand2,
       color: "text-blue-400"
     },

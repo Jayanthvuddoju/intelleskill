@@ -85,7 +85,10 @@ const UniversityFinalCTA = () => {
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:border-emerald-500/50 transition-all">
                 <Phone size={18} />
               </div>
-              <span className="font-medium">+91 8374503904</span>
+              <div className="flex flex-col gap-1">
+                <span className="font-medium">+91 8374503904</span>
+                <span className="font-medium">+91 7893307400</span>
+              </div>
             </div>
           </div>
 
