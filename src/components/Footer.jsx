@@ -33,8 +33,6 @@ const LinkedinIcon = ({ size = 20, ...props }) => (
 );
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   const socialLinks = [
     { name: 'LinkedIn (US)', href: 'https://www.linkedin.com/company/intellesphere-llc', icon: LinkedinIcon },
     { name: 'LinkedIn (India)', href: 'https://www.linkedin.com/company/intellesphere-pvt-ltd', icon: LinkedinIcon },
@@ -164,7 +162,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            © {currentYear} IntelleSphere Pvt Ltd. All Rights Reserved.
+            © 2026 IntelleSphere Pvt Ltd. All Rights Reserved.
           </p>
 
         </div>
