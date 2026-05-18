@@ -164,7 +164,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            © {currentYear} IntelleSkill. All rights reserved.
+            © {currentYear} IntelleSphere Pvt Ltd. All Rights Reserved.
           </p>
 
         </div>
