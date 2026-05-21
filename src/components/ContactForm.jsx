@@ -61,16 +61,25 @@ const ContactForm = ({ isModal = false, onSuccess }) => {
     setStatus('submitting');
     setErrorMessage('');
 
+    // Format phone number to prevent Google Sheets from interpreting '+' as a formula
+    let formattedPhone = formData.phone;
+    if (formattedPhone && formattedPhone.trim().startsWith('+')) {
+      formattedPhone = `'${formattedPhone.trim()}`;
+    }
+
+    const payload = {
+      ...formData,
+      phone: formattedPhone
+    };
+
     try {
-      // REPLACE THE URL BELOW WITH YOUR SHEETDB API URL
-      await fetch("YOUR_SHEETDB_API_URL_HERE", {
+      await fetch("https://script.google.com/macros/s/AKfycbzu33shZPUWS_rcz9k5dGMAypV0htQie3XfBvAPnRRY_I5iiAMIEBQCEID5wd_np3E/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
-        body: JSON.stringify({
-          data: [formData]
-        }),
+        body: JSON.stringify(payload),
       });
 
       setStatus('success');

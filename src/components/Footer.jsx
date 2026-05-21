@@ -110,20 +110,20 @@ const Footer = () => {
               ))}
             </div>
 
-            <div className="mt-10 pt-8 border-t border-white/5 flex flex-wrap gap-x-8 gap-y-4">
-              <a href="tel:+17204145030" className="flex items-center gap-2 text-sm hover:text-white transition-all group">
-                <Phone className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
+            <div className="mt-10 pt-8 border-t border-white/5 flex flex-wrap items-start gap-x-8 gap-y-4">
+              <a href="tel:+17204145030" className="flex items-start gap-2 text-sm hover:text-white transition-all group">
+                <Phone className="w-4 h-4 text-blue-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <span>US: +1 720-414-5030</span>
               </a>
-              <div className="flex items-center gap-2 text-sm group hover:text-white transition-all">
-                <Phone className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <div className="flex items-start gap-2 text-sm group hover:text-white transition-all">
+                <Phone className="w-4 h-4 text-emerald-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div className="flex flex-col">
                    <a href="tel:+918374503904" className="hover:text-white transition-colors">IN: +91 8374503904</a>
                    <a href="tel:+917893307400" className="hover:text-white transition-colors">IN: +91 7893307400</a>
                 </div>
               </div>
-              <a href="mailto:info@intelle-sphere.com" className="flex items-center gap-2 text-sm hover:text-white transition-all group">
-                <Mail className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
+              <a href="mailto:info@intelle-sphere.com" className="flex items-start gap-2 text-sm hover:text-white transition-all group">
+                <Mail className="w-4 h-4 text-purple-400 mt-0.5 group-hover:scale-110 transition-transform" />
                 <span>info@intelle-sphere.com</span>
               </a>
             </div>
