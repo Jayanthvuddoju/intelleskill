@@ -162,10 +162,20 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Phone</p>
-                        <div className="flex flex-col gap-1">
-                          <a href="tel:+918374503904" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 8374503904</a>
-                          <a href="tel:+917893307400" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+91 7893307400</a>
-                          <a href="tel:+17204145030" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide">+1 720-414-5030</a>
+                        <div className="flex flex-col gap-4">
+                          <div className="flex flex-col gap-2">
+                            <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 w-fit">India</span>
+                            <div className="flex flex-col gap-1.5 pl-1">
+                              <a href="tel:+918374503904" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide text-sm font-medium">+91 8374503904</a>
+                              <a href="tel:+917893307400" className="text-slate-200 hover:text-emerald-400 transition-colors tracking-wide text-sm font-medium">+91 7893307400</a>
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2 pt-3 border-t border-white/5">
+                            <span className="text-[10px] font-bold text-sky-400 uppercase tracking-wider bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20 w-fit">US</span>
+                            <div className="pl-1">
+                              <a href="tel:+17204145030" className="text-slate-200 hover:text-sky-400 transition-colors tracking-wide text-sm font-medium">+1 720-414-5030</a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -177,7 +187,7 @@ const Contact = () => {
                       <div>
                         <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-1">Availability</p>
                         <p className="text-slate-200 tracking-wide">
-                          Monday to Saturday — 9 AM to 7 PM
+                          Monday to Friday — 9 AM to 7 PM
                         </p>
                       </div>
                     </div>
